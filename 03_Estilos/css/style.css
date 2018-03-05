@@ -1,0 +1,30 @@
+
+@import "css/extras.css";
+
+/*Especificidad: 
+a   - valores in Line (no interesa usarlos).
+b   - id
+c   - class u otros atributos
+d   - etiquetas
+
+a.b.c.d.
+
+*/
+
+/*selector mediante id*/
+
+#p1 {color:blue;}
+/* La especificidad de esta instrucción concretamente es: 0.1.0.0 */
+
+/*No se usan!!! Porque se usan para gestionar el javascript.*/
+
+/*Selector mediante class: Los MÁS IMPORTANTES.*/
+
+.p1 {color:black; }
+/* La especificidad de esta instrucción concretamente es: 0.0.1.0 */
+
+/*selector mediante etiquetas*/
+
+p {color: brown;}
+
+/* La especificidad de esta instrucción concretamente es: 0.0.0.1 */

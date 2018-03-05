@@ -1,0 +1,17 @@
+h1 {color:blue;}
+.latin {color:chocolate;}
+.violeta{color: violet;}
+a  {text-decoration: none;
+    color: red;
+    }
+@keyframes example {
+        from {color: red;}
+        to {color: yellow;}
+    }
+    
+    
+p {   
+       
+        animation-name: example;
+        animation-duration: 4s;
+    }
