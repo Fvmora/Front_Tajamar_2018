@@ -1,0 +1,18 @@
+body  {
+    font-family: 'Roboto', sans-serif;
+}
+blockquote {
+    font-family: 'Coiny', cursive;
+    font-size: 2rem;
+}
+
+menuitem {
+    font-style: italic;
+    font-size: 1.5rem;
+    font-weight: 200;
+  
+}
+hr {
+    margin-left: 0px;
+}
+
