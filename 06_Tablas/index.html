@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tablas</title>
+    <style>
+        table.t1 {
+           /*  empty-cells: hide;  */
+            border-collapse: collapse;
+        } 
+        table.t1:hover {
+            
+            border-collapse: separate;
+            border-spacing: 10px;
+        }
+        table.t1 th {
+            padding: 2rem;
+            
+        }
+        table.t1 td.table_data {
+            text-align: right;
+            padding-right: 1rem;
+        }
+        table.t1 th, td.table_data {
+            border: .1rem solid;
+            border-radius: 5px;
+        }
+
+        /* Aquí los estilos de la t2 */
+
+        table.t2 td,
+        table.t2 th {
+            border: .1rem solid;
+            padding: .3rem;
+        }
+        table.t2 td:nth-of-type(odd){
+            background-color: salmon;
+        }
+        table.t2 td:nth-of-type(even){
+            background-color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tablas en HTML</h1>
+    <table class="t1"><!-- border="1" -->
+        <tr>
+            <th></th>
+            <th scope="col"></th> <!-- Los scope son para mejorar la accesibilidad de la tabla -->
+            <th scope="col" class="table_data">Examen 1</th> <!-- Las th son necesarias para mejorar la accesibilidad. -->
+            <th scope="col" class="table_data">Examen 2</th>
+            <th scope="col" class="table_data">Examen 3</th>
+        </tr>
+        <tr>
+            <th scope="row">Alumno 1</th>
+            <th>Teoría</th>
+            <td class="table_data">5</td>
+            <td class="table_data">4</td>
+            <td class="table_data">7</td>
+        </tr>
+        <tr>
+            <th>Alumno 1</th>
+            <th>Práctica</th>
+            <td class="table_data">5</td>
+            <td class="table_data">4</td>
+            <td class="table_data">7</td>
+        </tr>
+        <tr>
+            <th>Alumno 2</th>
+            <th>Teoría</th>
+            <td class="table_data">7</td>
+            <td class="table_data">3</td>
+            <td class="table_data">9</td>
+        </tr>
+        <tr>
+            <th>Alumno 2</th>
+            <th>Práctica</th>
+            <td class="table_data">7</td>
+            <td class="table_data">3</td>
+            <td class="table_data">9</td>
+        </tr>
+    </table>
+    <table class="t2"><!-- border="1" -->
+        <tr>
+            <th colspan="2">Tabla de notas</th>
+            
+            <th class="table_data">Examen 1</th> <!-- Las th son necesarias para mejorar la accesibilidad. -->
+            <th class="table_data">Examen 2</th>
+            <th class="table_data">Examen 3</th>
+        </tr>
+        <tr>
+            <th scope="rowgroup" rowspan="2">Alumno 1</th> <!-- 2 porque es ella misma y una más -->
+            <th scope="row">Teoría</th>
+            <td class="table_data">5</td>
+            <td class="table_data">4</td>
+            <td class="table_data">7</td>
+        </tr>
+        <tr>
+            
+            <th>Práctica</th>
+            <td class="table_data">5</td>
+            <td class="table_data">4</td>
+            <td class="table_data">7</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Alumno 2</th>
+            <th>Teoría</th>
+            <td class="table_data">7</td>
+            <td class="table_data">3</td>
+            <td class="table_data">9</td>
+        </tr>
+        <tr>
+           
+            <th>Práctica</th>
+            <td class="table_data">7</td>
+            <td class="table_data">3</td>
+            <td class="table_data">9</td>
+        </tr>
+    </table>
+    
+</body>
+</html>
