@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>float para hacer un layout</title>
+    <style>
+        *,
+        *::before, *::after,
+        *:before, *:after{
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 90%; 
+            
+            margin-left: auto;
+            margin-right: auto;
+            border: .1rem solid;
+        }
+        .container::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        p {
+            background-color: salmon; 
+            width: 20%;
+            padding: 1rem;
+            float: left;
+        }
+        p:not(:last-of-type) {
+            margin-right: 6.66%
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci provident beatae molestias magnam rem quae expedita placeat ex reiciendis temporibus sunt, ab, earum quas eligendi aliquam voluptas dolores ipsam aliquid?</p>
+        <p>Magnam veniam, cum facere consequuntur blanditiis laudantium! Officiis ipsa nisi, exercitationem temporibus est aliquam quia beatae maiores, quas, quam neque quisquam et iure quo alias natus repudiandae   saepe enim iste.</p>
+        <p>Eaque placeat accusantium sint officiis id libero quas beatae, quis excepturi aperiam exercitationem nihil eligendi tenetur, natus qui tempore obcaecati. Eos, tempora neque? Dolorum culpa eius modi deserunt corrupti ea.</p>
+        <p>Eligendi corporis reiciendis quibusdam at doloribus voluptatem nemo, vero fugit unde sequi nihil labore inventore, quis soluta magni amet ipsam similique. Quia dolore libero deserunt eius ullam laboriosam, error pariatur!</p>
+    </div>
+</body>
+</html>
