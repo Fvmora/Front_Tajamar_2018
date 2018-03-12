@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+    <style>
+        .control-group {
+            padding: 0.4rem;
+
+        }
+        .control-group label {
+            display: inline-block;
+            width: 20%; 
+            min-width: 10rem;
+        } /* El label es inline. */
+
+        .control-group input {
+            width: 40%; 
+            min-width: 10rem; 
+        } /* son inline-block. */
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ejemplo de formulario</h1>
+    </header>
+    <main>
+        <form action="" method="GET">
+            <fieldset> <!-- Es como un div para dividir el formulario en varios trocitos -->
+                <legend>Datos personales</legend>
+                <div class="control-group">  <!-- estos div son para dividir el form en varios bloques -->
+                    <label for="nombre">Escribe tu nombre</label>  <!-- El for lo que pregunta es de quien es esta etiqueta, es decir el id del elemento al que corresponde la etiqueta. Mejoran la accesibilidad. Tiene mucha importancia en los radiobuttons y checkbox. -->
+                    <input type="text" name="nombre" id="nombre"> <!-- La información recogida por un formulario se envía con el name como nombre. Cada control tiene que tener un name único. Se envian siempre parejas: name=value. Existe un atributo value. Pero no se pone porque es lo que pone el usuario. -->
+                </div>
+                <div class="control-group">
+                    <label for="apellido">Escribe tu apellido</label>
+                    <input type="text" name="apellido" id="apellido" placeholder="Escribe si puedes tus dos apellidos"> <!-- El placeholder es información fantasma, aparecen en HTML5 y pueden sustituir a las etiquetas.-->
+                </div>   
+                <div class="control-group">   
+                    <label for="mail">Escribe tu mail</label>
+                    <input type="email" name="mail" id="mail"> 
+                </div> 
+                <div class="control-group">   
+                    <label for="contraseña">Escribe tu contraseña</label>
+                    <input type="password" name="contraseña" id="contraseña" max-length="20"> 
+                </div>
+                
+            </fieldset>
+            <fieldset>
+                <legend>Otros datos</legend>
+                <textarea name="datos" id="datos" cols="30" rows="10" placeholder="No te molestes en decir nada"></textarea><!-- El cols y rows son parcialmente semántico por eso no se ha sustituido por css -->
+            </fieldset>
+            <fieldset>
+                <legend>Datos académicos</legend>
+                <div class="control-group">   
+                    <label for="curso">Escribe tu curso</label>
+                    <input type="text" name="curso" id="curso" value="Desarrollo Web" max-length="20"> <!-- max-length dice el máximo número de caracteres que entran en el input -->
+                </div>
+                <div class="check-group">
+                    <input type="checkbox" name="isOk" id="isOk"> <!-- Un checkbox es una entidad independiente, se pueden poner varios juntos.Son booleanos.-->
+                    <label for="isOk">Estoy de acuerdo con...</label>
+                    <input type="checkbox" name="isOk2" id="isOk2"> 
+                    <label for="isOk2">También estoy de acuerdo con...</label>
+                </div>
+                <legend>Qué turno quieres</legend>
+                <div class="radio-group"> <!-- En los radiobuttons el label es el value. -->
+                    <input type="radio" name="turno" id="mañana" value="mañana"> <!-- El name en el caso de los radiobuttons se repite --><!-- el value en el caso de los radiobuttons es obligatorio, es lo que se envía -->
+                    <label for="mañana">Mañana</label>
+                    <input type="radio" name="turno" id="tarde" value="tarde"> 
+                    <label for="tarde">Tarde</label>
+                    <input type="radio" name="turno" id="noche" value="noche"> 
+                    <label for="noche">Noche</label>
+                    
+                </div>
+                <div class="control-group">
+                    <label for="cursos">Selecciona un curso</label>
+                    <select name="cursos" id="cursos"> <!-- lo mismo que los radiobuttons pero en formato desplegable -->
+                        <option value="front">Desarrollo Front</option>
+                        <option value="web">Diseño Web</option>
+                        <option value="sql">Bases de datos SQL</option>
+                    </select>
+                </div>
+
+                
+            </fieldset>
+                <div class="button-group">
+                    <button type="submit">Enviar</button>
+                    <input type="button" value="Saludar">
+                    <button type="reset">Resetear</button>
+                    <input type="hidden" name="state" value="0"> <!-- Esto serviría para tener una variable que residiría en el dom y nos serviría para hacer cosas. -->
+                </div>
+        </form>
+    </main>
+</body>
+</html>

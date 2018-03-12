@@ -1,0 +1,87 @@
+*,
+*::before, *::after,
+*:before,*:after {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto; 
+}
+main {
+    min-height: 80vh;
+}
+
+/* La siguiente parte sería común a toda la hoja por lo que podría estar en la hoja de reset. */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav a {
+    text-decoration: none;
+    color: unset;
+}
+nav {
+    margin-bottom: 1rem;
+}
+
+/* hasta aquí */
+
+
+/* Menú 1, basado en display: inline-block; */
+nav.menu1 li {
+    display: inline-block;
+    border-right: solid black;
+}
+nav.menu1 li:first-of-type {
+    border-left: solid black;
+}
+nav.menu1 a {
+    display: block;
+    padding: 0.5rem 3rem;
+}
+
+/* Menú 2, basado en float  */
+
+nav.menu2 {
+    background-color: salmon;
+    overflow: hidden;
+    width: 100%;
+}
+nav.menu2 ul {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+/* nav.menu2 ul::after {
+    content: ""; 
+    display: block;
+    clear: both; 
+} esto es igual al overflow hidden para descolapsar el menu */
+nav.menu2 li {
+    width: 20%;
+    float: left; 
+ 
+  
+}
+/* Cuando en un contenedor todos sus elementos flotan el contenedor se colapsa hay que descolapsarlo con el overflow:hidden por ejemplo */
+/* Para que se coloquen uno al lado del otro tienen que tener un width. */
+
+nav.menu2 a {
+    display: block;
+    padding: 1rem 1rem;
+    text-align: center; 
+    border: solid gainsboro;
+    white-space: nowrap;
+}
+nav.menu2 a:hover {
+    background-color: seagreen;
+}
+
+
+
