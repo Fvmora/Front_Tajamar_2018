@@ -39,6 +39,20 @@ let edad = 12
 console.log(edad > 30 ? 'Buenos días' : 'Hola chaval')  
 
 
+//Errorr
+// if (x = 12){}
+
+let a = 12
+let b = 2
+let c = 4
+
+if(a < b && a < z) {
+    console.log('Comprobado')
+}  //como el proceso es secuencial. Es decir, si una cosa no se cumple la siguiente ni se comprueba.
+
+if (a > b || a < z) {
+    console.log('Comprobado')
+}//en el momento en el que una es verdad no se molesta de leer la otra. 
 
 
 
