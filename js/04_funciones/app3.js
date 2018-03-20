@@ -27,3 +27,23 @@ for (let i = 0; i < 10; i++){
     console.log(i)
 }
 
+
+
+function mostrarResultado1 (){
+    console.log(calcularCubo(n))
+}
+
+let mostrarResultado2 = function (){
+    console.log(calcularCubo(n))
+}
+setTimeout(mostrarResultado1, 1000)
+setTimeout(function(){      
+    console.log(calcularCubo(n))
+}, 3000)
+
+
+
+let nuevaFuncion = mostrarResultado1
+nuevaFuncion()
+
+
