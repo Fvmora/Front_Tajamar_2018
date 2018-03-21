@@ -19,14 +19,15 @@ let aDatos3 = new Array( 5, 6, 8, 5)  //= let aDatos3 = [5, 6, 8, 5] Se invoca n
 
 aLetras.join('') 
 aLetras.slice(inicio, fin)  //devuelve una porción del array: 
-//Para hacer una copia aLetrasOriginal = aLetras.slice(0, aLetras.length-1)
+//Para hacer una copia aLetrasOriginal = aLetras.slice(0, aLetras.length)
 
 
 //Mutables
 //cambian el array
 
 aLetras.sort() //->ordena los elementos en orden alfabetico
-let aNuevo = aLetras.splice(posicion inicio, cuanto quiero que extraiga, 'Introduce esto donde estaban los valores extraidos')               //es mutable pero devuelve algo.
+aLetras.reverse() 
+let aNuevo = aLetras.splice(/* posicion inicio , cuanto quiero que extraiga , 'Introduce esto donde estaban los valores extraidos' */)               //es mutable pero devuelve algo.
 
 //para quitar un solo elemento de un array. Por ejemplo el elemento 7.
 let aNuevo = aLetras.splice(7, 1)
@@ -35,6 +36,8 @@ aLetras.push('') //añadir último
 aLetras.pop() //quitar el ultimo
 aLetras.shift() //quitar el primero
 aLetras.unshift('') //añadir el primero
+
+
 
 
 
