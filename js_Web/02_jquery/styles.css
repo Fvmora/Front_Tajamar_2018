@@ -1,0 +1,26 @@
+*,
+*::after, *::before,
+*:after, *:before {
+    box-sizing: border-box;
+}
+body {
+    background-color: bisque; 
+}
+main {
+    height: 60vh;
+
+}
+
+main button {
+    color: maroon;
+}
+
+main div {
+    margin: 2rem 0 2rem 0;
+    padding: 1rem;
+}
+
+main div.output {
+    border: 1px solid lightsteelblue;
+    width: 50%;
+}
