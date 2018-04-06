@@ -1,0 +1,15 @@
+*,
+*::after, *::before,
+*:after, *:before {
+    box-sizing: border-box;
+}
+.salida1 {
+    background-color: lightsalmon;
+    float: left;
+    width: 50%;
+}
+.salida2 {
+    background-color: blue;
+    float: left;
+    width: 50%;
+}
