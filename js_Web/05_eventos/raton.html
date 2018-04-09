@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coordenadas del ratón</title>
+    <style>
+        body {
+            background-color: burlywood;
+            width: 2000px;
+            height: 2000px;
+        }
+        .bola{
+            width: 50px;
+            height: 50px;
+            border-radius: 20px;
+            background-color: grey;
+            position: absolute;
+            
+        }
+        .nariz {
+            width: 20px;
+            height: 10px;
+            border-radius: 20px;
+            background-color: black;
+            position: absolute;
+        }
+        .ojo {
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            background-color: white;
+            position: absolute;
+        }
+        .iris {
+            width: 8px;
+            height: 8px;
+            border-radius: 20px;
+            background-color: green;
+            position: absolute;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="bola" id="bola"></div>
+    <div class="nariz" id="nariz"></div>
+    <div class="ojo" id="ojo"><div class="iris" id="iris"></div></div>
+
+<script>
+    document.querySelector('body').addEventListener('mousemove', mousePosition)
+    let p = document.querySelector('#bola')
+    let pNariz = document.querySelector('#nariz')
+    let pOjo = document.querySelector('#ojo')
+    let pIris = document.querySelector('#iris')
+    function mousePosition(ev) {
+        let x = (ev.clientX - 20) + 'px'
+        let y = (ev.clientY -20) + 'px'
+    
+        console.log(ev.pageX, ev.pageY, '/', ev.clientX, ev.clientY, '/', ev.screenX, ev.screenY)
+        p.style.left = x
+        p.style.top = y
+
+        let r = (ev.clientX + 10) + 'px'
+        let z = (ev.clientY - 10) + 'px'
+        pNariz.style.left = r
+        pNariz.style.top = z
+
+        let u = (ev.clientX + 10) + 'px'
+        let q = (ev.clientY - 10) + 'px'
+        pOjo.style.left = u
+        pOjo.style.top = q
+
+        
+        
+    }
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Acordeon</title>
+    <style>
+        p{
+            height: 100px;
+            width: 100px;
+            background-color:blueviolet;
+            display: block;
+        }
+        p.respuesta {
+            display: none;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Acordeon</h1>
+    </header>
+    <main>
+        <p class="pregunta">Que es esto?</p>
+        <p class="respuesta">Esto es el número 1</p>
+        <p class="pregunta">y esto?</p>
+        <p class="respuesta">Esto es el número 2</p>
+        <p class="pregunta"> pero, y esta es la?</p>
+        <p class="respuesta"> Es la 3</p>
+    </main>
+
+    <script>
+        let p = document.querySelectorAll('p')
+        let aR = document.querySelectorAll('.respuesta')
+        let aP = document.querySelectorAll('.pregunta')
+        function acordeon (ev){
+            
+        console.log(ev)
+
+            
+                p.forEach(item => {
+                    
+                    let pos = item.textContent.indexOf(ev.target) + 1
+                   
+                    item[pos].display = 'block'
+                })
+                
+            
+           
+        }
+       
+        aP.forEach(item => item.addEventListener('click', acordeon))
+        
+    </script>
+</body>
+</html>

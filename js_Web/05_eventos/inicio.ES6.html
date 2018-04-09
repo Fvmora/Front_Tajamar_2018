@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos</title>
+    <script>
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Eventos</h1>
+    </header>
+    <main>
+        <a id="aPulsar" href="http://www.google.com">Pulsar Moderno</a>
+        <button type="button" id="btnPulsar">Pulsar</button>
+        <button type="button" id="btnPulsarM">Pulsar Moderno</button>
+
+
+    </main>
+
+    <script>
+
+        class App {
+            constructor (){
+
+            this.aMensajes = ['Hola, soy un handler', 'Hola, soy un listener']
+            //handler de eventos.
+
+            document.querySelector('#btnPulsar').onclick = this.btnPulsarF.bind(this)      //esto es manipulando un atributo de la etiqueta HTML5; esto es el estandar DOM level 0 Se usa cuando se requiere compatibilidad con IE8
+
+            //Listener de eventos ->Esto es el estandar DOM level 2 ->Este es el que se usa desde hace mucho.
+
+            document.querySelector('#aPulsar').addEventListener('click', this.btnPulsarF1.bind(this))
+            document.querySelector('#btnPulsarM').addEventListener('click', this.btnPulsarF1.bind(this),false) //este booleano define como se produce la propagación del evento.
+
+            //puede haber casos en los que además de responder al evento sobre el botón responda el controlador sobre el que está metido el boton.
+
+        }
+        btnPulsarF(ev) {
+            
+            alert(this.aMensajes[0])
+            console.dir(ev)
+        }
+        btnPulsarF1(ev){
+            ev.preventDefault()
+            alert(this.aMensajes[1]) 
+            console.dir(this)   // en este caso el objeto App
+            console.dir(ev.target)  //es el que dispara el evento, en este caso el botón disparador del evento.
+        }
+    
+
+
+        }
+
+        new App()  //instanciamos la aplicación, es decir, creamos el objeto aplicación.
+
+
+       
+
+/* window.addEventListener('load', ()=> newApp()) */ //otra forma de instanciar la aplicación.
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos</title>
+    <script>
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Eventos</h1>
+    </header>
+    <main>
+        <div class="form_group" id="btnGroup">
+            <button type="button" id="btnAceptar">Aceptar</button>
+            <button type="button" id="btnCancelar">Cancelar</button>
+        </div>
+
+
+    </main>
+
+    <script>
+
+        class App {
+            constructor() {
+
+                this.aMensajes = ['Aceptado', 'Cancelado','Pulsado Grupo' ]
+                
+
+                document.querySelector('#btnAceptar').addEventListener('click', this.btnAceptar.bind(this))
+                document.querySelector('#btnCancelar').addEventListener('click', this.btnCancelar.bind(this), false) //este booleano define como se produce la propagación del evento. false es por defecto, la propagación es de dentro a fuera. Es decir, primero los elementos contenidos y luego los contenedores.
+
+                //puede haber casos en los que además de responder al evento sobre el botón responda el controlador sobre el que está metido el boton.
+
+                document.querySelector('#btnGroup').addEventListener('click', this.btnGroup.bind(this), true) //true invierte el false por defecto. Los eventos burbugean de afuera hacia adentro.
+            
+            }
+            btnAceptar(ev) {
+
+             
+                console.dir(this.aMensajes[0])
+            }
+            btnCancelar(ev) {
+           
+                console.dir(this.aMensajes[1])  
+               
+            }
+            btnGroup(ev) {
+           
+           console.dir(this.aMensajes[2])  
+          
+       }
+
+
+
+        }
+
+        
+
+
+
+
+ window.addEventListener('load', ()=> new App())  //otra forma de instanciar la aplicación.
+
+
+
+    </script>
+</body>
+
+</html>
