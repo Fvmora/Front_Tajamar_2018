@@ -4,6 +4,7 @@ export class Formulario {    //exportamos la clase
         this.datos = {       //como es un objetoJSON, no un fichero JSON, las propiedades pueden ir sin ''.
             nombre: '',
             apellido: '',
+            fechaNacim: '',
             email: '',
             password: '',
             datos: '',
@@ -24,11 +25,13 @@ export class Formulario {    //exportamos la clase
 
     }
     accederDom() {
+        this.dommFormulario = document.querySelector('form')
         this.domBtnSaludar = document.querySelector('#btnSaludar')
-        this.domBtnEnviar = document.querySelector('#btnSubmit')
-        this.domBtnBorrar = document.querySelector('#btnBorrar')
+        //this.domBtnEnviar = document.querySelector('#btnSubmit')
+        //this.domBtnBorrar = document.querySelector('#btnBorrar')
         this.domInpNombre = document.querySelector('#nombre')
         this.domInpApellido = document.querySelector('#apellido')
+        this.domInpFecha = document.querySelector('#fecha')
         this.domInpEmail = document.querySelector('#mail')
         this.domInpPassword = document.querySelector('#contraseña')
         this.domAreaDatos = document.querySelector('#datos')
@@ -41,8 +44,8 @@ export class Formulario {    //exportamos la clase
     }
     definirManejadores() {
         this.domBtnSaludar.addEventListener('click', this.saludar.bind(this))
-        this.domBtnEnviar.addEventListener('click', this.enviar.bind(this))
-        this.domBtnBorrar.addEventListener('click', this.borrar.bind(this))
+        this.dommFormulario.addEventListener('submit', this.enviar.bind(this))  //el método enviar lo desencadena el submit.
+        //this.domBtnBorrar.addEventListener('click', this.borrar.bind(this))
         this.domSelectCurso.addEventListener('change', this.pintarAsignaturas.bind(this))
         
 
@@ -114,15 +117,17 @@ export class Formulario {    //exportamos la clase
         this.domDivAsignaturas.innerHTML = asig
     }
     enviar(oe) {
-        oe.preventDefault()
+       
         this._recogerDatos()
         this._presentarDatos()
+        oe.preventDefault() //esto es para simular el envío.
 
     }
     _recogerDatos() {
 
         this.datos.nombre = this.domInpNombre.value
         this.datos.apellido = this.domInpApellido.value
+        this.datos.fechaNacim = new Date(this.domInpFecha.value)
         this.datos.email = this.domInpEmail.value
         this.datos.password = this.domInpPassword.value
         this.datos.datos = this.domAreaDatos.value
@@ -162,6 +167,7 @@ export class Formulario {    //exportamos la clase
         <ul> 
         <li>Nombre: ${this.datos.nombre}</li>
         <li>Apellido: ${this.datos.apellido}</li>
+        <li>Fecha de nacimiento: ${this.datos.fechaNacim}</li>
         <li>e-mail: ${this.datos.email}</li>
         <li>Contraseña: ${this.datos.password}</li>
         <li>Datos Extra: ${this.datos.datos}</li>
@@ -173,8 +179,9 @@ export class Formulario {    //exportamos la clase
     
         `
         this.domDivResultados.innerHTML = resultadoHTML
+       
     }
-    borrar() {
+   /*  borrar() {
 
-    }
+    } */
 }

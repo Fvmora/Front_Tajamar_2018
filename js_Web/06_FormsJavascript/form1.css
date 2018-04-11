@@ -12,3 +12,6 @@
     width: 40%; 
     min-width: 10rem; 
 } /* son inline-block. */
+.oculto {
+    display: none;
+}
