@@ -18,7 +18,7 @@
                 <legend>Datos personales</legend>
                 <div class="control-group">  <!-- estos div son para dividir el form en varios bloques -->
                     <label for="nombre">Escribe tu nombre</label>  <!-- El for lo que pregunta es de quien es esta etiqueta, es decir el id del elemento al que corresponde la etiqueta. Mejoran la accesibilidad. Tiene mucha importancia en los radiobuttons y checkbox. -->
-                    <input type="text" name="nombre" id="nombre"> <!-- La información recogida por un formulario se envía con el name como nombre. Cada control tiene que tener un name único. Se envian siempre parejas: name=value. Existe un atributo value. Pero no se pone porque es lo que pone el usuario. -->
+                    <input type="text" name="nombre" id="nombre" required> <!-- La información recogida por un formulario se envía con el name como nombre. Cada control tiene que tener un name único. Se envian siempre parejas: name=value. Existe un atributo value. Pero no se pone porque es lo que pone el usuario. -->
                 </div>
                 <div class="control-group">
                     <label for="apellido">Escribe tu apellido</label>
@@ -60,10 +60,7 @@
                 <div class="control-group">
                     <label for="cursos">Selecciona un curso</label>
                     <select name="cursos" id="cursos"> <!-- lo mismo que los radiobuttons pero en formato desplegable -->
-<<<<<<< HEAD
-=======
                         <option value="nada">Selecciona un curso</option>
->>>>>>> 9a741a424f1c192d2f86ff4067aa5c34fb82d7c5
                         <option value="front">Desarrollo Front</option>
                         <option value="web">Diseño Web</option>
                         <option value="sql">Bases de datos SQL</option>
