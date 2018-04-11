@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Acordeon</title>
+    <style>
+        .respuesta {
+            display: none;
+            background-color: blue;
+            width: 150px;
+            height: 20px;
+        }
+
+        .pregunta {
+            background-color: yellow;
+            width: 150px;
+            height: 20px;
+        }
+
+        .display {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Acordeon</h1>
+    </header>
+
+    <main>
+        <p class="pregunta">¿Qué es esto?</p>
+        <p class="respuesta">Es la respuesta 1</p>
+        <p class="pregunta">Y esto, ¿qué es?</p>
+        <p class="respuesta">Es la 2</p>
+        <p class="pregunta">Esta cual es?</p>
+        <p class="respuesta">Esta es la tercera</p>
+        <p class="pregunta">Esta es la ultima?</p>
+        <p class="respuesta">Sí</p>
+    </main>
+    <script>
+
+        class Acordeon {
+            constructor() {
+                this.p = document.querySelectorAll('p')
+                this.pR = document.querySelectorAll('.respuesta')
+                this.pP = document.querySelectorAll('.pregunta')
+                this.texto = []
+                this.textoP = []
+                this.cad
+            }
+            addListener() {
+                this.p.forEach(item => {
+                    item.addEventListener('click', this.toggle.bind(this))
+
+                })
+            }
+            calcPos(cad) {
+                for (let i = 0; i < this.p.length; i++) {
+                    this.texto[i] = this.p[i].textContent.split(' ').join('')
+
+                }
+                let pos = this.texto.indexOf(cad)
+
+                return pos
+            }
+            toggle(ev) {
+
+
+                this.pP.forEach(item => {
+                    item = ev.target.textContent
+                    this.cad = item.split(' ').join('')
+                })
+                let posicion = this.calcPos(this.cad)
+
+                this.pR.forEach(item => {
+                    if (item.className === 'respuesta display') {
+                        item.classList.remove('display')
+                        console.log(item)
+                    }
+                })
+                this.p[posicion + 1].classList.add('display')
+
+            }
+
+        }
+
+
+        let acor1 = new Acordeon()
+
+        acor1.addListener()
+
+    </script>
+
+</body>
+
+</html>
