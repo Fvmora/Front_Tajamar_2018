@@ -17,8 +17,15 @@ export class Formulario {    //exportamos la clase
             diseño_web: ['UI', 'HTML'],
             bases_datos: ['SQL', 'MongoDB', 'Oracle']
         }
+<<<<<<< HEAD
         this.accederDom()  //disparamos el método.
         this.definirManejadores() //disparamos el método   El constructor se convierte en un controlador.
+=======
+        
+        this.accederDom()  //disparamos el método.
+        this.definirManejadores() //disparamos el método   El constructor se convierte en un controlador.
+        /* this.pintarAsignaturas(this.domSelectCurso) */
+>>>>>>> 9a741a424f1c192d2f86ff4067aa5c34fb82d7c5
 
     }
     accederDom() {
@@ -41,11 +48,82 @@ export class Formulario {    //exportamos la clase
         this.domBtnSaludar.addEventListener('click', this.saludar.bind(this))
         this.domBtnEnviar.addEventListener('click', this.enviar.bind(this))
         this.domBtnBorrar.addEventListener('click', this.borrar.bind(this))
+<<<<<<< HEAD
+=======
+        this.domSelectCurso.addEventListener('change', this.pintarAsignaturas.bind(this))
+        
+
+
+
+       /*  Array.from(this.domSelectCurso.options).forEach(item=> {
+            item.addEventListener('change', this.pintarAsignaturas.bind(this))
+        })   *///esto no entiendo porque no funciona
+
+        /* for(let i=0; i < this.domSelectCurso.options.length ; i++){
+            this.domSelectCurso.options[i].addEventListener('select', this.pintarAsignaturas.bind(this))
+           
+        } */ //no coge los manejadores de eventos, pq no salta la function pintarAsignaturas
+        
+       
+>>>>>>> 9a741a424f1c192d2f86ff4067aa5c34fb82d7c5
 
     }
 
     saludar() {
+<<<<<<< HEAD
         console.log('Hola amigos')
+=======
+        console.log(this.domSelectCurso.options)
+        
+    }
+    pintarAsignaturas(ev){
+        
+        
+        let index = ev.target.selectedIndex
+        let asig = ''
+        let x = []
+        switch (this.domSelectCurso.options[index].value) {
+            case 'front':
+
+                x = this.aSelectAsignaturas.desarrollo_front
+                asig = ` <select name="asignaturas" id="asignaturas">`
+                for (let i = 0; i < x.length; i++) {
+                    asig += `       
+                <option value="${x[i]}">${x[i]}</option>          
+                `
+                }
+                asig += `</select>`
+                break
+            case 'web':
+
+                x = this.aSelectAsignaturas.diseño_web
+
+                asig = ` <select name="asignaturas" id="asignaturas">`
+                for (let i = 0; i < x.length; i++) {
+                    asig += `             
+                <option value="${x[i]}">${x[i]}</option> 
+                `
+                }
+                asig += `</select>`
+                break
+            case 'sql':
+
+                x = this.aSelectAsignaturas.bases_datos
+
+                asig = ` <select name="asignaturas" id="asignaturas">`
+                for (let i = 0; i < x.length; i++) {
+                    asig += ` 
+                <option value="${x[i]}">${x[i]}</option> 
+                `
+                }
+                asig += `</select>`
+                break
+             
+                
+
+        }
+        this.domDivAsignaturas.innerHTML = asig
+>>>>>>> 9a741a424f1c192d2f86ff4067aa5c34fb82d7c5
     }
     enviar(oe) {
         oe.preventDefault()
@@ -81,6 +159,7 @@ export class Formulario {    //exportamos la clase
     }
     procesarSelect(nodo) {
         let index = nodo.selectedIndex
+<<<<<<< HEAD
         let asig = ''
         let x = []
         switch (nodo.options[index].value) {
@@ -135,6 +214,10 @@ export class Formulario {    //exportamos la clase
                 break
         }
         this.domDivAsignaturas.innerHTML = asig
+=======
+        
+        
+>>>>>>> 9a741a424f1c192d2f86ff4067aa5c34fb82d7c5
         return {       //pasamos un objeto con todos los datos.
             code: nodo.options[index].value, //el value es el valor que le hemos dado nosotros en html.
             text: nodo.options[index].text  //también valdría textContent, es el texto del nodo.
