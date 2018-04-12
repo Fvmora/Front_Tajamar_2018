@@ -11,8 +11,11 @@ export class Formulario {    //exportamos la clase
             isOk: 'false',  //los checkbox no deben estar marcados al inicio por ley.
             isOk2: 'false',
             turno: '',
-            cursos: {}
+            cursos: {},
+            asignatura : ''
         }
+        this.x = []
+        
         this.aSelectAsignaturas = {
             desarrollo_front: ['HTML5', 'CSS3', 'Javascript'],
             diseño_web: ['UI', 'HTML'],
@@ -25,7 +28,7 @@ export class Formulario {    //exportamos la clase
 
     }
     accederDom() {
-        this.dommFormulario = document.querySelector('form')
+        this.domFormulario = document.querySelector('form')
         this.domBtnSaludar = document.querySelector('#btnSaludar')
         //this.domBtnEnviar = document.querySelector('#btnSubmit')
         //this.domBtnBorrar = document.querySelector('#btnBorrar')
@@ -39,14 +42,19 @@ export class Formulario {    //exportamos la clase
         this.domCbxIsOk = document.querySelector('#isOk')
         this.domCbxIsOk2 = document.querySelector('#isOk2')
         this.domSelectCurso = document.querySelector('#cursos')
-        this.domDivResultados = document.querySelector('#resultados')
         this.domDivAsignaturas = document.querySelector('#asignaturas')
+        if(document.querySelector('#asig')){
+        this.domSelectAsig = document.querySelector('#asig')}
+        this.domDivResultados = document.querySelector('#resultados')
+       
     }
     definirManejadores() {
         this.domBtnSaludar.addEventListener('click', this.saludar.bind(this))
-        this.dommFormulario.addEventListener('submit', this.enviar.bind(this))  //el método enviar lo desencadena el submit.
+        this.domFormulario.addEventListener('submit', this.enviar.bind(this))  //el método enviar lo desencadena el submit.
         //this.domBtnBorrar.addEventListener('click', this.borrar.bind(this))
         this.domSelectCurso.addEventListener('change', this.pintarAsignaturas.bind(this))
+        /* if(document.querySelector('#asig')){
+        this.domSelectAsig.addEventListener('change', this.procesarSelectAsignaturas.bind(this))}  */
  
     }
 
@@ -58,35 +66,39 @@ export class Formulario {    //exportamos la clase
         
         let index = ev.target.selectedIndex
         let asig = ''
-        let x = []
+        
 
         if(this.domSelectCurso.options[index].value) this.domSelectCurso.firstElementChild.classList.add('oculto') 
 
         switch (this.domSelectCurso.options[index].value) {
             case 'front':
-                x = this.aSelectAsignaturas.desarrollo_front
+                this.x = this.aSelectAsignaturas.desarrollo_front
                 break
             case 'web':
-            x = this.aSelectAsignaturas.diseño_web
+            this.x = this.aSelectAsignaturas.diseño_web
             break
             case 'sql':
-                x = this.aSelectAsignaturas.bases_datos
+                this.x = this.aSelectAsignaturas.bases_datos
             break
         }
 
-            asig = ` <select name="asignaturas" id="asignaturas">`
-            for (let i = 0; i < x.length; i++) {
+            asig = ` <select name="asignaturas" id="asig">`
+            for (let i = 0; i < this.x.length; i++) {
                 asig += `       
-            <option value="${x[i]}">${x[i]}</option>          
+            <option value="${this.x[i]}">${this.x[i]}</option>          
             `
             }
             asig += `</select>`
 
         this.domDivAsignaturas.innerHTML = asig
+       
     }
     enviar(oe) {
-       
-        this._recogerDatos()
+        try{
+        this._recogerDatos()}
+    catch(error){
+        console.log(error)
+    }
         this._presentarDatos()
         oe.preventDefault() //esto es para simular el envío.
 
@@ -102,7 +114,9 @@ export class Formulario {    //exportamos la clase
         this.datos.turno = this.procesarRadio(this.domRadioTurno)  //procesamos los radiobutton
         this.datos.isOk = this.domCbxIsOk.checked  //los checkbox
         this.datos.isOk2 = this.domCbxIsOk2.checked  //guardamos un booleano en los checkbox.
-        this.datos.cursos = this.procesarSelect(this.domSelectCurso)               //los select contienen dos propiedades selectedIndex y el array options.Después se recoge el value o el text. 
+        this.datos.cursos = this.procesarSelect(this.domSelectCurso)       //los select contienen dos propiedades selectedIndex y el array options.Después se recoge el value o el text. 
+        if(document.querySelector('#asig')){
+        this.datos.asignatura = this.procesarSelectAsignaturas(this.domSelectAsig)}
 
     }
     procesarRadio(nodo) {
@@ -129,6 +143,22 @@ export class Formulario {    //exportamos la clase
 
 
     }
+    procesarSelectAsignaturas(nodo){
+       console.log(nodo)
+
+
+        let xx = this.x
+        console.log(xx)
+        let y = ''
+        
+        xx.forEach(item => {
+            alert('hola')
+            if(item === nodo.options.text) { y = item}
+            
+            
+        })
+       return y
+    }
     _presentarDatos() {
         let resultadoHTML =
             `<h2>Resultados</h2>
@@ -143,6 +173,7 @@ export class Formulario {    //exportamos la clase
         <li>Aceptadas condiciones 2: ${ this.datos.isOk2 ? 'Si' : 'No'}</li>
         <li>Turno: ${this.datos.turno}</li>
         <li>Curso: ${this.datos.cursos.text}</li>
+        <li>Asignatura: ${this.datos.asignatura}</li>
         </ul>
     
         `
