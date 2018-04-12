@@ -12,16 +12,19 @@ export class Formulario {    //exportamos la clase
             isOk2: 'false',
             turno: '',
             cursos: {},
-            asignatura : ''
+            asignatura: ''
         }
-        this.x = []
         
+        this.x = []
+        this.index = 0
+        this.y = []
+
         this.aSelectAsignaturas = {
             desarrollo_front: ['HTML5', 'CSS3', 'Javascript'],
             diseño_web: ['UI', 'HTML'],
             bases_datos: ['SQL', 'MongoDB', 'Oracle']
         }
-        
+
         this.accederDom()  //disparamos el método.
         this.definirManejadores() //disparamos el método   El constructor se convierte en un controlador.
         /* this.pintarAsignaturas(this.domSelectCurso) */
@@ -43,62 +46,95 @@ export class Formulario {    //exportamos la clase
         this.domCbxIsOk2 = document.querySelector('#isOk2')
         this.domSelectCurso = document.querySelector('#cursos')
         this.domDivAsignaturas = document.querySelector('#asignaturas')
-        if(document.querySelector('#asig')){
-        this.domSelectAsig = document.querySelector('#asig')}
+       /*  if(document.querySelector('#asig')){
+        this.domSelectAsig = document.querySelector('#asig')}  */
         this.domDivResultados = document.querySelector('#resultados')
+
+    }
+    accederDomAsig() {
+        if (document.querySelector('#asig')) {
+            this.domSelectAsig = document.querySelectorAll('.options')
+        }
+    }
+    
+    definirManejadorDinamico(){
+        
+        /* this.domSelectAsig.addEventListener('change', this.procesarSelectAsignaturas.bind(this)) */
+        for(let i = 0; i <this.domSelectAsig.length; i++ ){
        
+           
+            this.domSelectAsig[i].addEventListener('click', this.procesarSelectAsignaturas.bind(this))
+            console.log(this.domSelectAsig[i])
+        }
+        
+        
     }
     definirManejadores() {
         this.domBtnSaludar.addEventListener('click', this.saludar.bind(this))
         this.domFormulario.addEventListener('submit', this.enviar.bind(this))  //el método enviar lo desencadena el submit.
         //this.domBtnBorrar.addEventListener('click', this.borrar.bind(this))
-        this.domSelectCurso.addEventListener('change', this.pintarAsignaturas.bind(this))
-        /* if(document.querySelector('#asig')){
-        this.domSelectAsig.addEventListener('change', this.procesarSelectAsignaturas.bind(this))}  */
- 
+        this.domSelectCurso.addEventListener('change', this.pintarAsignaturas.bind(this), true)
+        /* if(document.querySelector('#asig')){ */
+        /* }  */
+
     }
 
     saludar() {
         console.log(this.domSelectCurso.options)
-        
+
     }
-    pintarAsignaturas(ev){
-        
+    pintarAsignaturas(ev) {
+
         let index = ev.target.selectedIndex
         let asig = ''
-        
 
-        if(this.domSelectCurso.options[index].value) this.domSelectCurso.firstElementChild.classList.add('oculto') 
+
+        if (this.domSelectCurso.options[index].value) this.domSelectCurso.firstElementChild.classList.add('oculto')
 
         switch (this.domSelectCurso.options[index].value) {
             case 'front':
                 this.x = this.aSelectAsignaturas.desarrollo_front
                 break
             case 'web':
-            this.x = this.aSelectAsignaturas.diseño_web
-            break
+                this.x = this.aSelectAsignaturas.diseño_web
+                break
             case 'sql':
                 this.x = this.aSelectAsignaturas.bases_datos
-            break
+                break
         }
 
-            asig = ` <select name="asignaturas" id="asig">`
-            for (let i = 0; i < this.x.length; i++) {
+        asig = ` <select name="asignaturas" id="asig" multiple>`
+        for (let i = 0; i < this.x.length; i++) {
+            if (this.x[i] === this.x[-1]) {
                 asig += `       
-            <option value="${this.x[i]}">${this.x[i]}</option>          
+            <option  selected></option>          
+            `
+               
+            } else {
+                asig += `       
+            <option value="${this.x[i]}" class="options">${this.x[i]}</option>          
             `
             }
-            asig += `</select>`
+        }
+        asig += `</select>`
+
 
         this.domDivAsignaturas.innerHTML = asig
+        
+        this.accederDomAsig()
+        this.definirManejadorDinamico()
+
        
+        
+
     }
     enviar(oe) {
-        try{
-        this._recogerDatos()}
-    catch(error){
-        console.log(error)
-    }
+        try {
+            this._recogerDatos()
+        }
+        catch (error) {
+            console.log(error)
+        }
         this._presentarDatos()
         oe.preventDefault() //esto es para simular el envío.
 
@@ -115,8 +151,8 @@ export class Formulario {    //exportamos la clase
         this.datos.isOk = this.domCbxIsOk.checked  //los checkbox
         this.datos.isOk2 = this.domCbxIsOk2.checked  //guardamos un booleano en los checkbox.
         this.datos.cursos = this.procesarSelect(this.domSelectCurso)       //los select contienen dos propiedades selectedIndex y el array options.Después se recoge el value o el text. 
-        if(document.querySelector('#asig')){
-        this.datos.asignatura = this.procesarSelectAsignaturas(this.domSelectAsig)}
+        /* if(document.querySelector('#asig')){
+        this.datos.asignatura = this.procesarSelectAsignaturas(this.domSelectAsig)} */
 
     }
     procesarRadio(nodo) {
@@ -134,8 +170,8 @@ export class Formulario {    //exportamos la clase
     }
     procesarSelect(nodo) {
         let index = nodo.selectedIndex
-        
-        
+
+
         return {       //pasamos un objeto con todos los datos.
             code: nodo.options[index].value, //el value es el valor que le hemos dado nosotros en html.
             text: nodo.options[index].text  //también valdría textContent, es el texto del nodo.
@@ -143,21 +179,21 @@ export class Formulario {    //exportamos la clase
 
 
     }
-    procesarSelectAsignaturas(nodo){
-       console.log(nodo)
-
-
-        let xx = this.x
-        console.log(xx)
-        let y = ''
+    procesarSelectAsignaturas(ev) {
+       
+        console.log(ev)
         
-        xx.forEach(item => {
-            alert('hola')
-            if(item === nodo.options.text) { y = item}
-            
-            
-        })
-       return y
+        let xx = this.x
+
+        
+        
+            xx.forEach(item => {
+                if (item === ev.target.textContent) { this.y.push(item) }
+              
+            })
+        
+        this.datos.asignatura = this.y.join(' , ')
+        
     }
     _presentarDatos() {
         let resultadoHTML =
@@ -178,6 +214,6 @@ export class Formulario {    //exportamos la clase
     
         `
         this.domDivResultados.innerHTML = resultadoHTML
-       
+
     }
 }
