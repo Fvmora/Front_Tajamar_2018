@@ -15,3 +15,7 @@
 .oculto {
     display: none;
 }
+
+.desplAsignaturas{
+    display: inline-block;
+}

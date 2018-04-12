@@ -47,21 +47,7 @@ export class Formulario {    //exportamos la clase
         this.dommFormulario.addEventListener('submit', this.enviar.bind(this))  //el método enviar lo desencadena el submit.
         //this.domBtnBorrar.addEventListener('click', this.borrar.bind(this))
         this.domSelectCurso.addEventListener('change', this.pintarAsignaturas.bind(this))
-        
-
-
-
-       /*  Array.from(this.domSelectCurso.options).forEach(item=> {
-            item.addEventListener('change', this.pintarAsignaturas.bind(this))
-        })   *///esto no entiendo porque no funciona
-
-        /* for(let i=0; i < this.domSelectCurso.options.length ; i++){
-            this.domSelectCurso.options[i].addEventListener('select', this.pintarAsignaturas.bind(this))
-           
-        } */ //no coge los manejadores de eventos, pq no salta la function pintarAsignaturas
-        
-       
-
+ 
     }
 
     saludar() {
@@ -70,50 +56,32 @@ export class Formulario {    //exportamos la clase
     }
     pintarAsignaturas(ev){
         
-        
         let index = ev.target.selectedIndex
         let asig = ''
         let x = []
+
+        if(this.domSelectCurso.options[index].value) this.domSelectCurso.firstElementChild.classList.add('oculto') 
+
         switch (this.domSelectCurso.options[index].value) {
             case 'front':
-
                 x = this.aSelectAsignaturas.desarrollo_front
-                asig = ` <select name="asignaturas" id="asignaturas">`
-                for (let i = 0; i < x.length; i++) {
-                    asig += `       
-                <option value="${x[i]}">${x[i]}</option>          
-                `
-                }
-                asig += `</select>`
                 break
             case 'web':
-
-                x = this.aSelectAsignaturas.diseño_web
-
-                asig = ` <select name="asignaturas" id="asignaturas">`
-                for (let i = 0; i < x.length; i++) {
-                    asig += `             
-                <option value="${x[i]}">${x[i]}</option> 
-                `
-                }
-                asig += `</select>`
-                break
+            x = this.aSelectAsignaturas.diseño_web
+            break
             case 'sql':
-
                 x = this.aSelectAsignaturas.bases_datos
-
-                asig = ` <select name="asignaturas" id="asignaturas">`
-                for (let i = 0; i < x.length; i++) {
-                    asig += ` 
-                <option value="${x[i]}">${x[i]}</option> 
-                `
-                }
-                asig += `</select>`
-                break
-             
-                
-
+            break
         }
+
+            asig = ` <select name="asignaturas" id="asignaturas">`
+            for (let i = 0; i < x.length; i++) {
+                asig += `       
+            <option value="${x[i]}">${x[i]}</option>          
+            `
+            }
+            asig += `</select>`
+
         this.domDivAsignaturas.innerHTML = asig
     }
     enviar(oe) {
@@ -181,7 +149,4 @@ export class Formulario {    //exportamos la clase
         this.domDivResultados.innerHTML = resultadoHTML
        
     }
-   /*  borrar() {
-
-    } */
 }
