@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "title": "El señor de las moscas",
+      "author": "Jorgito",
+      "contenido": "Tu tia"
+    }
+  ],
+  "comments": [
+    {
+      "id": 2,
+      "body": "otro comentario",
+      "postId": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
