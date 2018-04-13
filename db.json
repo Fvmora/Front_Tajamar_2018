@@ -6,11 +6,6 @@
       "id": 1
     },
     {
-      "title": "Neuromante",
-      "author": "William Gibson",
-      "id": 2
-    },
-    {
       "title": "El perro del hortelano",
       "author": "Ni me acuerdo",
       "id": 3
@@ -37,11 +32,6 @@
     }
   ],
   "comments": [
-    {
-      "id": 2,
-      "body": "otro comentario",
-      "postId": 2
-    },
     {
       "title": "El Señor de los Anillos",
       "author": "JRR Tolkien",
