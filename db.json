@@ -1,10 +1,13 @@
 {
   "posts": [
     {
-      "id": 2,
+      "id": 1,
       "title": "El señor de las moscas",
       "author": "Jorgito",
       "contenido": "Tu tia"
+    },
+    {
+      "id": 2
     }
   ],
   "comments": [
