@@ -1,13 +1,39 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "El señor de las moscas",
-      "author": "Jorgito",
-      "contenido": "Tu tia"
+      "title": "Neuromante",
+      "author": "William Gibson",
+      "id": 1
     },
     {
+      "title": "Neuromante",
+      "author": "William Gibson",
       "id": 2
+    },
+    {
+      "title": "El perro del hortelano",
+      "author": "Ni me acuerdo",
+      "id": 3
+    },
+    {
+      "title": "El Señor de los Anillos",
+      "author": "JRR Tolkien",
+      "id": 4
+    },
+    {
+      "title": "El Señor de los Anillos",
+      "author": "JRR Tolkien",
+      "id": 5
+    },
+    {
+      "title": "El Señor de los Anillos",
+      "author": "JRR Tolkien",
+      "id": 6
+    },
+    {
+      "title": "Nuevo post",
+      "author": "Fernando",
+      "id": 7
     }
   ],
   "comments": [
@@ -15,6 +41,11 @@
       "id": 2,
       "body": "otro comentario",
       "postId": 2
+    },
+    {
+      "title": "El Señor de los Anillos",
+      "author": "JRR Tolkien",
+      "id": 3
     }
   ],
   "profile": {

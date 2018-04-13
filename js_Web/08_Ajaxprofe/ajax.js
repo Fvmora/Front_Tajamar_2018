@@ -48,8 +48,8 @@ function app() {
 
     function postDatos () {
         let data = {
-            title: "El Señor de los Anillos",
-            author: "JRR Tolkien"}
+            title: "Nuevo post",
+            author: "Fernando"}
         let metodo = 'POST'
         let url = 'http://localhost:3000/posts'
         conectar(metodo, url, JSON.stringify(data), stateChange)
@@ -88,11 +88,12 @@ function app() {
     function conectar(metodo, url, data, funcion) {
         ajax = new XMLHttpRequest()
         ajax.onreadystatechange = funcion
-        ajax.headers = {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
+
         ajax.open(metodo, url)
+        ajax.setRequestHeader('Content-Type', 'application/json')
+        ajax.setRequestHeader( 'Accept','application/json')
+    
+        
         console.log(data)
         ajax.send(data)
 
