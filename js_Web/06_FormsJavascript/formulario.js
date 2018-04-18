@@ -77,7 +77,7 @@ export class Formulario {    //exportamos la clase
         /* if(document.querySelector('#asig')){ */
         /* }  */
 
-    }
+        }
 
     saludar() {
         console.log(this.domSelectCurso.options)

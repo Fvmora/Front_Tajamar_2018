@@ -1,0 +1,17 @@
+main {
+    background-color: turquoise;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; 
+    align-content: center;
+    flex-direction: column;
+    height: 80vh;
+}
+div {
+    font-size: 6rem;
+    padding: 1rem;
+    background-color: salmon;
+    border: 1px solid seashell;
+    margin: 1rem;
+}

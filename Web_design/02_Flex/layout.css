@@ -1,0 +1,52 @@
+*,
+*::after, *::before,
+*:after, *:before {
+    box-sizing: border-box;
+}
+
+.header,.footer {
+    min-height: 6rem;
+    background-color: brown; 
+    color: palegoldenrod;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: flex;
+}
+
+.lado{
+    padding: 3rem;
+    border: 1px solid black;
+}
+
+.lado_izda {
+    width: 10%; 
+    flex-basis: auto;
+    flex-grow: 4;  
+}
+.films {
+    display: flex;
+}
+.columna {
+    width: 50%; 
+    background-color: grey;
+   
+}
+.lado_dcha{
+    width: 10%; 
+    flex-basis: auto;
+    flex-grow: 1;   
+}
+
+.img_container {
+    width: 50%;
+    float: left;
+    padding: 1rem;
+}
+.imagen {
+    width: 100%;
+}
+
