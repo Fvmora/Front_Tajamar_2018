@@ -1,0 +1,271 @@
+*,
+*::after, *::before,
+*:after, *:before {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Montserrat', sans-serif;
+
+}
+.header{
+   
+    width: 100%; 
+    display: flex;
+    background: linear-gradient(white,rgb(224, 224, 224));
+    padding-left: 0.5rem;
+}
+
+.h1{
+    display: flex; 
+    flex-wrap: wrap;
+    width: 10%;
+    flex: 2 1 auto;
+    font-family: 'Lato', sans-serif;
+}
+h2{
+    font-family: 'Lato', sans-serif;
+    color: blue;
+}
+.not {
+    margin-top: 0;
+}
+.span_arriba {
+    margin-left:52%;
+    color: blue;
+}
+
+
+.nav {
+    display: flex;
+    width: 10%;
+    flex: 6 1 auto;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.menu{ 
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    
+    
+}
+.menu li {
+    list-style-type: none;
+    background-color: rgb(255, 242, 146);
+    width: 15%;
+    height: 3rem;
+    display: flex;   
+    align-items: center;   
+    text-align: center;
+}
+.menu li a {
+    width: 90%;
+    margin: 0 auto 0 auto;
+    color:rgb(0, 40, 216); /**elemento de accesibilidad, color de letra que contraste con el de fondo*/
+    font-size: 1rem; /*elemento accesibilidad, tamaño de las letras en rem*/ 
+    text-decoration: none;
+    
+
+
+}
+.menu li a:hover {
+    color: rgb(2, 138, 143);
+} /* Elemento de accesibilidad, distingue los enlaces. */
+
+main {
+    display: flex;
+    line-height: 1.5rem;
+    letter-spacing: 1px;
+    
+}
+
+.section {
+    display: flex;
+    width: 10%;
+    flex: 3 1 auto;
+    background-color: rgb(253, 246, 203);
+
+}
+.article {
+    padding: 0 1rem;
+    width: 10%;
+    flex: 1 1 auto;
+}
+
+.aside {
+    
+    width: 10%;
+    flex: 1 1 auto;
+}
+
+.negrita{
+    font-size: 1.2rem;
+    font-weight: bold;
+   
+}
+
+.figure1 {
+    width: 100%;
+   
+    margin: 0;
+}
+.figure2 {
+    width: 40%;
+    margin: 0 1rem 0.5rem 0;
+    float: left;
+}
+.figure3 {
+    width: 40%;
+    float: right;
+    margin: 0 0 1rem 1rem;
+}
+.figure4{
+    width: 100%;
+    margin:1rem 0 1rem 0;
+}
+img {
+    width: 100%;
+}
+figcaption {
+    color: darkblue;
+}
+.noticias {
+    background-color: rgb(241, 241, 241);
+    padding: 1rem;
+}
+.h3_noticias {
+    clear: both;
+}
+.enlaces_article {
+    background-color: rgb(253, 231, 172);
+    padding: 1rem;
+    border: 1px solid black;
+
+}
+.enl_interes {
+    color: blue;
+
+}
+
+
+.enlaces li  {
+ list-style-type: none;
+
+}
+.enlaces li a {
+    font-style: italic; /*Elemento de accesibilidad, doble diferenciación de los hiperenlaces.*/
+    color:rgb(0, 40, 216); 
+    font-size: 1.2rem;   
+    text-decoration: none;
+}
+.enlaces li a:hover {
+    color: rgb(2, 138, 143);
+    
+}
+
+.footer {
+    background-color: rgb(195, 195, 195);
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon_navegacion {
+    display: none;
+}
+.nav_mobile {
+    display: none;
+}
+.menu_mobile{
+    width: 100%;
+   padding: 0;
+}
+.menu_mobile li{
+    margin: 0;
+    list-style-type: none;
+    width: 100%;
+    background-color: rgb(221, 221, 221);
+    border: 1px solid blue;
+    text-align: center;
+    padding: 1rem;
+}
+.menu_mobile li a{
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+}
+.menu_mobile li a:hover {
+    color: yellow;
+}
+
+@media screen and (max-width: 898px){
+    .menu li a {
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 866px){
+    .menu li a {
+        font-size: 0.7rem;
+    }
+}
+@media screen and (max-width: 768px){
+    main {
+        flex-wrap: wrap;
+    }
+    .section {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+    .aside{
+        width: 100%;
+        flex: 1 1 auto;
+    }
+    .menu li a {
+        font-size: 0.6rem;
+    }
+}
+@media screen and (max-width: 664px){
+    .menu li a {
+        font-size: 0.5rem;
+    }
+}
+@media screen and (max-width: 520px) {
+   .menu {
+        display: none;
+    }
+    .nav {
+        justify-content: flex-end;
+    }
+    .icon_navegacion{  /*Elemento accesibilidad, saltar sobre los menus de navegación*/
+        display: inline-block;
+        margin-right: 7%;
+        width: 5rem;
+        height: 5rem;
+
+    }
+    .section {
+        flex-wrap: wrap;
+    }
+    .article {
+        width: 100%;
+        padding: 0 1rem;
+         
+    }
+    .nav_mobile {
+        display: flex;
+        justify-content: flex-start;
+        padding: 0;
+        margin: 0;
+    } /*menu por si no cargan los scripts en version mobil, elemento de accesibilidad.*/
+
+}
+
+
+
